@@ -2,8 +2,43 @@ Esta herramienta consiste en un escáner que permite
 detectar de forma rápida y precisa los puertos TCP que 
 una máquina tiene abiertos.
 
+¿Cómo se usa la herramienta?
+
+Su uso es de lo más sencillo, cabe decir antes que nada que la herramienta cuenta 
+con un panel de ayuda:
+
+┌─[✗]─[root@kali]─[/home/Jonathan/Desktop]
+└──╼ #fastTcp -h
+Usage of fastTCPScan:
+  -host string
+        Host o dirección IP a escanear (default "127.0.0.1")
+  -range string
+        Rango de puertos a comprobar: 80,443,1-65535,1000-2000, ... (default "1-65535")
+  -threads int
+        Número de hilos a usar (default 1000)
+  -timeout duration
+        Segundos por puerto (default 1s)
+				
+				
+Mediante el parámetro -host especificamos la dirección ip de la máquina objetivo (también podemos especificar un nombre de dominio), con el parámetro -threads 
+especificamos el número de hilos a usar y con el parámetro -range especificamos el rango de puertos a escanear.
+
+En este caso a modo de ejemplo, efectuaremos un escaneo contra la dirección ip 192.168.11.12 haciendo uso de 
+900 hilos (por defecto se escanean todos los puertos [1-65535]):
+
+─[✗]─[root@kali]─[/home/Jonathan/Desktop]
+└──╼ #fastTcp -host 192.168.11.12 -threads 900
+
+[*] Escaneando host 192.168.11.12 (Puerto: 1-65535)
+
+443: Abierto
+902: Abierto
+3000: Abierto
+
+
+Y listo, no tiene mayor misterio.
 
 
 
 
-Create By Jonathan Sandoval 
+Create By Jonathan Sandoval
